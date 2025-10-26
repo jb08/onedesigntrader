@@ -1,0 +1,30 @@
+databases:
+  - name: eagle_harbor_postgres
+    plan: basic-256mb
+    diskSizeGB: 5
+    region: oregon
+    postgresMajorVersion: 17
+    ipAllowList: [] # No entries in the IP allow list
+
+services:
+  - type: web
+    name: onedesigntrader
+    runtime: ruby
+    plan: starter
+    region: oregon
+    branch: main
+    buildCommand: "./bin/render-build.sh"
+    preDeployCommand: "./bin/render-predeploy.sh"
+    startCommand: "./bin/rails server"
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: eagle_harbor_postgres
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false # You'll provide this value on Blueprint creation
+      - key: WEB_CONCURRENCY
+        value: 2 # Recommended default
+      - key: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: "https://api.honeycomb.io"
