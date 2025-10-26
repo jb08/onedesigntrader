@@ -1,0 +1,26 @@
+<h1>Boats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Number</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @boats.each do |boat| %>
+      <tr>
+        <td><%= boat.type %></td>
+        <td><%= boat.title %></td>
+        <td><%= boat.year %></td>
+        <td><%= boat.number %></td>
+        <td><%= number_to_currency(boat.price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

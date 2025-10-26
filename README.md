@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+onedesigntrader.org
 
-Things you may want to cover:
+Commands
+```
+$ br boats:add_test_boats
+$ EDITOR=vim rails credentials:edit
+$ br tailwindcss:build
+$ br tailwindcss:watch
+```
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
