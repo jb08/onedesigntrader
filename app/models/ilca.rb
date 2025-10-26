@@ -1,0 +1,2 @@
+class ILCA < Boat
+end
